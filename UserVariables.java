@@ -8,6 +8,9 @@ import java.util.regex.Pattern;
 class UserVariables {
     static private Map<String, String> userVariables = new HashMap<>();
 
+    UserVariables(){
+    }
+
     private static void put(String key, String value) {
         userVariables.put(key, value);
     }

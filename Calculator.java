@@ -60,8 +60,7 @@ class Calculator {
                     break;
                 case CALCULATION:
                     try {
-                        //System.out.println(
-                        new Calculation(userInput).getResult();//);
+                        System.out.println(new Calculation(userInput).getResult());
                     } catch (IllegalArgumentException e) {
                         System.out.println(e.getMessage());
                     }
