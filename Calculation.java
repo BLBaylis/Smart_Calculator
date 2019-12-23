@@ -1,6 +1,7 @@
 package calculator;
 
-import java.math.BigInteger;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
@@ -136,9 +137,9 @@ class Calculation {
             if (next.matches("[+-]?\\d+")) {
                 calcStack.addFirst(next);
             } else {
-                BigInteger result;
-                BigInteger pop1 = new BigInteger(String.valueOf(calcStack.removeFirst()));
-                BigInteger pop2 = new BigInteger(String.valueOf(calcStack.removeFirst()));
+                BigDecimal result;
+                BigDecimal pop1 = new BigDecimal(String.valueOf(calcStack.removeFirst()));
+                BigDecimal pop2 = new BigDecimal(String.valueOf(calcStack.removeFirst()));
                 switch (next) {
                     case "+":
                         result = pop1.add(pop2);
@@ -150,7 +151,7 @@ class Calculation {
                         result = pop2.multiply(pop1);
                         break;
                     case "/":
-                        result = pop2.divide(pop1);
+                        result = pop2.divide(pop1, RoundingMode.HALF_UP);
                         break;
                     case "^":
                         result = pop2.pow(pop1.intValue());
