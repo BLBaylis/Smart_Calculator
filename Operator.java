@@ -26,7 +26,7 @@ class Operator {
             case "/":
                 return 2;
             case "+":
-            case"-":
+            case "-":
                 return 1;
             default:
                 throw new IllegalArgumentException("Unknown Operator");
